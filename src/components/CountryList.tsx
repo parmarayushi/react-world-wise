@@ -17,7 +17,7 @@ export default function CountryList({ cities, isLoading }: any) {
   return (
     <ul className={styles.countryList}>
       {countries.map((country: any) => (
-        <CountryItem country={country} />
+        <CountryItem country={country} key={country.country} />
       ))}
     </ul>
   );
