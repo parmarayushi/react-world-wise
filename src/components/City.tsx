@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const formatDate = (date: any) =>
   new Intl.DateTimeFormat("en", {
@@ -10,6 +10,9 @@ const formatDate = (date: any) =>
 
 function City() {
   const { id } = useParams();
+  const [searchParams, setSerachParams] = useSearchParams();
+  const lat = searchParams.get("lat");
+  const lng = searchParams.get("lng");
 
   // TEMP DATA
   const currentCity = {
@@ -57,7 +60,10 @@ function City() {
     //     <ButtonBack />
     //   </div>
     // </div>
-    <h1>City {id}</h1>
+    <>
+      <h1>City {id}</h1>
+      Position:{lat},{lng}
+    </>
   );
 }
 
