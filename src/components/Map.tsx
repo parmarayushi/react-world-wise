@@ -16,13 +16,13 @@ import styles from "./Map.module.css";
 
 export default function Map() {
   const { cities }: any = useCities();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [mapPosition, setMapPosition] = useState<any>([40, 0]);
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,
     getPosition,
   } = useGeolocation();
-  const [lat, lng] = useUrlPosition();
+  const [lat, lng]: any = useUrlPosition();
 
   useEffect(() => {
     if (lat && lng) setMapPosition([lat, lng]);
@@ -83,4 +83,5 @@ function DetectClick() {
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
     },
   });
+  return null;
 }
